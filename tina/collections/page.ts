@@ -13,6 +13,13 @@ export const PageCollection: Collection = {
   fields: [
     {
       name: "seoTitle",
+      label: "SEO Title",
+      type: "string",
+      required: true
+    },
+    {
+      name: "seoDescription",
+      label: "SEO Description",
       type: "string",
       required: true
     },

@@ -23,6 +23,7 @@ export const BlogCollection: Collection = {
       name: "description",
       label: "Description",
       type: "string",
+      required: true,
     },
     {
       name: "pubDate",
