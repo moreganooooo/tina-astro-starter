@@ -3,13 +3,12 @@
 
 @theme {
   /* Colors */
-  --color-accent: #a476ff;
-  --color-background: #1d1a3c;
-  --color-container: #24243e;
+  --color-accent: #ff8fab;
+  --color-background: #16062a;
+  --color-container: #220d3a;
   --color-line: #f3f3f310;
   --color-gray: #ffffffaf;
   --color-darkgray: rgba(255, 255, 255, 0.3);
-  --color-green: #00ff41;
   
   /* Fonts */
   --font-heading: "Space Grotesk Variable", sans-serif;
@@ -46,10 +45,10 @@
   body {
     @apply font-body antialiased text-white;
     background: linear-gradient(
-      135deg,    
-    #1f1c2c 0%,
-    #1d1a3c 50%,
-    #24243e 100%
+      160deg,
+      #1a0630 0%,
+      #7b1547 50%,
+      #c24020 100%
     );
     background-attachment: fixed;
     min-height: 100vh;
@@ -82,7 +81,7 @@
   /* @apply bg-gray; */
   border-radius: 100px;
   /* Fallback for browsers that don't support color-mix (Chrome <111, iOS Safari <16.2) */
-  background-color: #4a4863; /* equivalent to mixing var(--color-background) with white 20% */
+  background-color: #3d2050; /* equivalent to mixing var(--color-background) with white 20% */
 }
 @supports (background-color: color-mix(in srgb, red, white)) {
   ::-webkit-scrollbar-thumb {
@@ -92,7 +91,7 @@
 ::-webkit-scrollbar-thumb:hover {
   /* @apply bg-gray-50; */
   /* Fallback for older browsers */
-  background-color: #77768a; /* equivalent to mixing var(--color-background) with white 40% */
+  background-color: #6b4e7e; /* equivalent to mixing var(--color-background) with white 40% */
 }
 @supports (background-color: color-mix(in srgb, red, white)) {
   ::-webkit-scrollbar-thumb:hover {
