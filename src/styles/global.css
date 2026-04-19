@@ -1,3 +1,4 @@
+/* stylelint-disable at-rule-no-unknown */
 @import "tailwindcss";
 
 @theme {
@@ -80,9 +81,21 @@
 ::-webkit-scrollbar-thumb {
   /* @apply bg-gray; */
   border-radius: 100px;
-  background-color: color-mix(in srgb, var(--color-background), white 20%);
+  /* Fallback for browsers that don't support color-mix (Chrome <111, iOS Safari <16.2) */
+  background-color: #4a4863; /* equivalent to mixing var(--color-background) with white 20% */
+}
+@supports (background-color: color-mix(in srgb, red, white)) {
+  ::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--color-background), white 20%);
+  }
 }
 ::-webkit-scrollbar-thumb:hover {
   /* @apply bg-gray-50; */
-  background-color: color-mix(in srgb, var(--color-background), white 40%);
+  /* Fallback for older browsers */
+  background-color: #77768a; /* equivalent to mixing var(--color-background) with white 40% */
+}
+@supports (background-color: color-mix(in srgb, red, white)) {
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--color-background), white 40%);
+  }
 }
