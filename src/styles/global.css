@@ -114,6 +114,7 @@
     text-shadow:
       0 0 0.5px currentColor,
       0 0 1px currentColor;
+    font-variation-settings: 'wght' 600, 'opsz' 72;
   }
 }
 
