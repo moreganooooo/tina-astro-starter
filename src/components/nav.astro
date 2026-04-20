@@ -158,12 +158,12 @@ const navItems: NavItem[] = [
       width 0.4s ease;
   }
 
-   nav.scrolling {
+  nav.scrolling {
     background-color: color-mix(in srgb, var(--color-background), transparent 75%);
     border-color: #ffffff20;
-    
     border-radius: 9999px;
     backdrop-filter: blur(10px);
+    top: 1.25rem; /* slightly higher when scrolled — add this line */
   }
 
   nav a.active .nav-indicator {
@@ -440,7 +440,7 @@ const navItems: NavItem[] = [
       const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
       const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
 
-      const minWidth = 580;
+      const minWidth = 420;
       const maxWidth = window.innerWidth * 0.8;
       const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
 
