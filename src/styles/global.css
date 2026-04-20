@@ -16,6 +16,7 @@
   /* ── Typography ── */
   --font-heading-display: 'Bodoni Moda', 'Georgia', serif;  /* hero only */
   --font-heading: 'DM Serif Display', 'Georgia', serif;  /* all other headings */
+  --font-body: 'Satoshi', 'Inter', sans-serif;
 
   /* Custom Animations */
   --animate-fall: fall linear forwards;
@@ -129,7 +130,7 @@
   }
 
   .falling-letter {
-    @apply absolute font-heading font-extralight select-none pointer-events-none leading-none;
+    @apply absolute font-heading-display font-extralight select-none pointer-events-none leading-none;
     animation: fall linear forwards;
   }
   
