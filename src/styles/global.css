@@ -111,6 +111,7 @@
     font-family: var(--font-heading-display);
     font-optical-sizing: auto;
     font-variation-settings: 'wght' 600, 'opsz' 96;
+    text-shadow:
       0 0 0.5px currentColor,
       0 0 1px currentColor,
       0 0 1.5px currentColor;
