@@ -153,7 +153,11 @@ const navItems: NavItem[] = [
     body {
       padding-bottom: 70px;
     }
+    #role-trigger-mobile {
+    display: flex; /* override the none above, only on mobile */
   }
+  }
+  
 
   nav {
     background-color: transparent;
@@ -276,7 +280,6 @@ const navItems: NavItem[] = [
     background: oklch(0.72 0.18 35 / 0.15);
     border-color: oklch(0.72 0.18 35 / 0.6);
   }
-
   .role-switcher__menu {
     position: absolute;
     top: calc(100% + 0.5rem);
@@ -324,6 +327,7 @@ const navItems: NavItem[] = [
 
   /* ── Mobile pill ── */
   #role-trigger-mobile {
+    display: none;
     position: fixed;
     bottom: 74px;
     left: 50%;
@@ -449,7 +453,7 @@ const navItems: NavItem[] = [
       const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
       const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
 
-      const minWidth = 420;
+      const minWidth = 560;
       const maxWidth = window.innerWidth * 0.8;
       const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
 
@@ -482,14 +486,14 @@ const navItems: NavItem[] = [
     rafId = null;
   }
 
-  // Initial position on load
-  requestAnimationFrame(() => {
-    const switcher = document.getElementById('role-switcher-wrapper') as HTMLElement | null;
-    if (switcher && nav) {
-      const navRect = nav.getBoundingClientRect();
-      switcher.style.left = `${navRect.left - switcher.offsetWidth - 8}px`;
-    }
-  });
+  // Initial position on load — setTimeout lets browser finish painting first
+setTimeout(() => {
+  const switcher = document.getElementById('role-switcher-wrapper') as HTMLElement | null;
+  if (switcher && nav) {
+    const navRect = nav.getBoundingClientRect();
+    switcher.style.left = `${navRect.left - switcher.offsetWidth - 8}px`;
+  }
+}, 100);
 
   window.addEventListener(
     "scroll",
