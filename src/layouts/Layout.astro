@@ -31,10 +31,13 @@ const { title } = Astro.props;
 
     <button
       id="flow-btn"
-      class="hidden md:flex fixed bottom-8 left-8 z-50 items-center gap-2 cursor-pointer"
+      class="hidden md:flex fixed top-8 right-8 z-50 items-center gap-2 cursor-pointer group"
       aria-label="Change particle flow"
     >
-      ✦ Change Flow
+      <span id="flow-label">Change Flow</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.34.07-.68.07-1.08s-.03-.74-.07-1.08l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.34-.07.69-.07 1.08s.03.74.07 1.08l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65Z"/>
+      </svg>
     </button>
 
     <button
@@ -235,22 +238,34 @@ const { title } = Astro.props;
 
     <style>
       #flow-btn {
-        padding: 0.4rem 1rem;
-        border: 1px solid oklch(0.72 0.18 35 / 0.35);
-        border-radius: 9999px;
-        background: oklch(0.72 0.18 35 / 0.08);
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      #flow-btn svg {
+        color: oklch(0.72 0.18 35 / 0.45);
+        transition: color 250ms ease, filter 250ms ease;
+      }
+      #flow-btn:hover svg {
+        color: oklch(0.72 0.18 35);
+        filter: drop-shadow(0 0 8px oklch(0.72 0.18 35 / 0.7));
+      }
+
+      #flow-label {
         color: oklch(0.72 0.18 35);
         font-family: var(--font-body);
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         font-weight: 500;
         letter-spacing: 0.04em;
-        backdrop-filter: blur(8px);
-        transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(6px);
+        transition: opacity 250ms ease, transform 250ms ease;
       }
-      #flow-btn:hover {
-        background: oklch(0.72 0.18 35 / 0.15);
-        border-color: oklch(0.72 0.18 35 / 0.6);
-        box-shadow: 0 0 16px oklch(0.72 0.18 35 / 0.2);
+      #flow-btn:hover #flow-label {
+        opacity: 1;
+        transform: translateX(0);
       }
     </style>
   </body>

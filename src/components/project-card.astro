@@ -19,13 +19,18 @@ const { project } = Astro.props;
 const isSlider = project.images.length > 1;
 ---
 
-<div class="project-card group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500" data-roles="all">
+<a
+  href={project.link}
+  target={project.link.startsWith('http') ? '_blank' : '_self'}
+  class="project-card group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-accent/40 transition-all duration-500 block"
+  data-roles="all"
+>
   <div class="aspect-video overflow-hidden relative bg-[#180a30]">
     <div class="absolute inset-0 bg-accent/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
-    
+
     <div class={`w-full h-full relative ${isSlider ? 'image-slider' : ''}`}>
       {project.images.map((img, index) => (
-        <img 
+        <img
           src={img}
           alt={`${project.title} screenshot ${index + 1}`}
           onerror="this.onerror=null;this.src='placeholder.jpeg';"
@@ -33,7 +38,7 @@ const isSlider = project.images.length > 1;
         />
       ))}
     </div>
-    
+
     <div class="absolute top-3 right-3 flex gap-2 z-20">
       {project.platforms.map((p) => (
         <div class="p-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10 text-white/80">
@@ -44,14 +49,9 @@ const isSlider = project.images.length > 1;
   </div>
 
   <div class="p-6 space-y-4">
-    <div class="flex justify-between items-start">
-      <div>
-        <span class="text-accent text-[10px] uppercase tracking-widest">{project.category}</span>
-        <h3 class="text-xl font-heading text-white mt-1">{project.title}</h3>
-      </div>
-      <a href={project.link} target={project.link.startsWith('http') ? '_blank' : '_self'} class="text-white/40 hover:text-accent transition-colors">
-        <Icon name="mdi:open-in-new" class="w-6 h-6" />
-      </a>
+    <div>
+      <span class="text-accent text-[10px] uppercase tracking-widest">{project.category}</span>
+      <h3 class="text-xl font-heading text-white mt-1">{project.title}</h3>
     </div>
 
     <p class="text-gray-400 text-sm font-body line-clamp-3">
@@ -66,7 +66,7 @@ const isSlider = project.images.length > 1;
       ))}
     </div>
   </div>
-</div>
+</a>
 
 <script>
   function initSliders() {
