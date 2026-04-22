@@ -6,7 +6,7 @@
       "images": ["astro-01.webp", "astro-02.jpeg"],
       "tech": ["Astro", "Tailwind"],
       "platforms": ["web"],
-      "link": "https://astro.build/themes/details/career-portfolio-data-driven-astro-ssg/",
+      "link": "/project",
       "category": "Published Website"
     },
     {
@@ -15,7 +15,7 @@
       "images": ["astro-02.jpeg", "#"],
       "tech": ["Flutter", "Dart", "REST API"],
       "platforms": ["apple-ios", "android"],
-      "link": "https://github.com/nbakh16/career-portfolio-template",
+      "link": "/project",
       "category": "Hobby"
     }
   ]
