@@ -139,6 +139,31 @@
   }
 }
 
+/* ── Cosmic particles ── */
+.cosmic-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes cosmic-float {
+  0%   { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+@keyframes cosmic-flow {
+  0%   { transform: translateX(0) translateY(0); }
+  25%  { transform: translateX(20vw) translateY(10vh); }
+  50%  { transform: translateX(-15vw) translateY(30vh); }
+  75%  { transform: translateX(10vw) translateY(50vh); }
+  100% { transform: translateX(0) translateY(100vh); }
+}
+
+@keyframes cosmic-spiral {
+  0%   { transform: translateX(0) translateY(0) rotate(0deg); }
+  100% { transform: translateX(50vw) translateY(100vh) rotate(720deg); }
+}
+
 /* Custom Scrollbar for a cleaner look */
 ::-webkit-scrollbar {
   width: 8px;
