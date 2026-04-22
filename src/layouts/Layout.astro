@@ -245,11 +245,11 @@ const { title } = Astro.props;
 
       #flow-btn svg {
         color: oklch(0.72 0.18 35 / 0.45);
-        transition: color 250ms ease, filter 250ms ease;
+        transition: color 600ms ease, filter 600ms ease;
       }
       #flow-btn:hover svg {
         color: oklch(0.72 0.18 35);
-        filter: drop-shadow(0 0 8px oklch(0.72 0.18 35 / 0.7));
+        filter: drop-shadow(0 0 6px oklch(0.72 0.18 35 / 0.45));
       }
 
       #flow-label {
@@ -261,7 +261,7 @@ const { title } = Astro.props;
         white-space: nowrap;
         opacity: 0;
         transform: translateX(6px);
-        transition: opacity 250ms ease, transform 250ms ease;
+        transition: opacity 600ms ease, transform 600ms ease;
       }
       #flow-btn:hover #flow-label {
         opacity: 1;
